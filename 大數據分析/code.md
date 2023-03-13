@@ -70,4 +70,15 @@ print('緯度:',sts.kurtosis(score))
 ## 1505
 ```
 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import load_boston
+
+boston_dataset=load_boston()
+
+boston=pd.DataFrame(boston_dataset.data,columns=boston_dataset.feature_names)
+boston['MEDV']=boston_dataset.target
+boston
 ```
