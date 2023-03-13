@@ -83,3 +83,10 @@ boston['MEDV']=boston_dataset.target
 boston
 ```
 ![擷取](https://user-images.githubusercontent.com/71476327/224634842-9609bec1-a0be-4578-8f6a-fd81a55e7904.PNG)
+```
+plt.figure(figsize=(2,5))
+plt.boxplot(boston['LSTAT'],showmeans=True)
+plt.title('LSTAT')
+plt.show
+```
+![擷取](https://user-images.githubusercontent.com/71476327/224641505-338571de-2582-43e4-9d38-8869a05cf73a.PNG)
