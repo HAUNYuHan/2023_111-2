@@ -82,3 +82,4 @@ boston=pd.DataFrame(boston_dataset.data,columns=boston_dataset.feature_names)
 boston['MEDV']=boston_dataset.target
 boston
 ```
+![擷取](https://user-images.githubusercontent.com/71476327/224634842-9609bec1-a0be-4578-8f6a-fd81a55e7904.PNG)
