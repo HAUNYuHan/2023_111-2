@@ -67,6 +67,8 @@ print('離散係數:',np.std(score)/np.mean(score))
 print('偏度:',sts.skewness(score))
 print('緯度:',sts.kurtosis(score))
 ```
+![擷取](https://user-images.githubusercontent.com/71476327/226266085-192f92be-80ac-4ebe-93e8-1b7b08fcbeac.PNG)
+
 ## 1505
 ```
 
