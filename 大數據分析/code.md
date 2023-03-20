@@ -90,3 +90,24 @@ plt.title('LSTAT')
 plt.show
 ```
 ![擷取](https://user-images.githubusercontent.com/71476327/224641505-338571de-2582-43e4-9d38-8869a05cf73a.PNG)
+## DA_ex1602
+```
+import numpy as np
+
+points= np.random.normal(27000,15000,10000)
+np.mean(points)
+
+import matplotlib.pyplot as plt
+plt.hist(points, 50)
+plt.show()
+
+np.mean(points)
+np.median(points)
+
+points2=np.append(points,[1000000000])
+np.mean(points2)
+np.median(points2)
+plt.hist(points2,50)
+plt.show()
+```
+![擷取](https://user-images.githubusercontent.com/71476327/226263896-eaf0e5a6-956b-4143-89ff-3a3c714f4371.PNG)
