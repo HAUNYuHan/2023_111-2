@@ -113,3 +113,37 @@ plt.hist(points2,50)
 plt.show()
 ```
 ![擷取](https://user-images.githubusercontent.com/71476327/226263896-eaf0e5a6-956b-4143-89ff-3a3c714f4371.PNG)
+
+## 5305
+```
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StanderScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+
+iris_df = pd.read_csv('https://archive.ics.uci.edu/ml/mac')
+
+X = iris_df.iloc[:,:-1].values
+y = iris_df.iloc[:,-1].values
+
+def calc_cod(data):
+    return np.std(data)/np.mean(data)
+
+cod1 = calc_cod(X[:,0])
+cod2 = calc_cod(X[:,1])
+
+print("第一個屬性的COD:",cod1)
+print("第二個屬性的COD:",cod2)
+
+scaler = StanderScaler()
+X_norm = scaler.fit_transform(X)
+
+X_train,X_test,y_test = train_test_spilt(X_norm,y,test_size=0.2,random_state=42)
+
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train,y_train)
+
+score = knn.score(X_test,y_test)
+print("準確率得分:",score)
+```
