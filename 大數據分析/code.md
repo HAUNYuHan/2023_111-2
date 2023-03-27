@@ -136,7 +136,7 @@ cod2 = calc_cod(X[:,1])
 print("第一個屬性的COD:",cod1)
 print("第二個屬性的COD:",cod2)
 
-scaler = StandarScaler()
+scaler = StandardScaler()
 X_norm = scaler.fit_transform(X)
 
 X_train,X_test,y_train,y_test = train_test_split(X_norm,y,test_size=0.2,random_state=42)
