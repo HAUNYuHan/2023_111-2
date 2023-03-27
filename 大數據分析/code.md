@@ -122,7 +122,7 @@ from sklearn.preprocessing import StanderScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-iris_df = pd.read_csv('https://archive.ics.uci.edu/ml/mac')
+iris_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data')
 
 X = iris_df.iloc[:,:-1].values
 y = iris_df.iloc[:,-1].values
