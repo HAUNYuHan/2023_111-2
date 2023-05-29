@@ -31,3 +31,27 @@ plt.title('House Price vs House Area')
 plt.legend()
 plt.show
 ```
+```
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+
+wine = datasets.load_wine()
+df =pd.DataFrame(data=wine.data, columns=feature_names)
+df["target"] = wine.target
+
+df.head()
+df.tail()
+df.shape()
+df.describe()
+df.info()
+df.dtypes()
+df.isna()
+df.duplicated().sum()
+
+missing_values = df.isnull().sum()
+print("Missing values per column:")
+print(missing_values)
+```
