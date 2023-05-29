@@ -63,7 +63,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 wine = datasets.load_wine()
-df =pd.DataFrame(data=wine.data, columns=feature_names)
+df =pd.DataFrame(data=wine.data, columns=wine.feature_names)
 df["target"] = wine.target
 df.rename(columns={"od280/od315_of_diluted_wines":"protein_concentration"},inplace=True)
 
