@@ -118,3 +118,35 @@ sns.histplot(df['magnesium_log'], bins=30, color='green')
 plt.title('Log Transformed Magnesium')
 plt.show()
 ```
+```
+import seaborn as sns
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report
+
+from matplotlib import rcParams
+
+wine = load_wine()
+df = pd.DataFrame(data=wine.data,columns=wine.feature_names)
+df["target"] = wine.target
+
+df.target.value_counts()
+df.target.value_counts(normalize=True)
+
+x = df.drop('target', axis=1)
+y =df['target']
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(x_train, y_train)
+
+predictions = model.predict(x_test)
+print(classification_report(y_test, predictions))
+
+
+```
