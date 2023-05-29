@@ -81,3 +81,40 @@ plt.ylabel("Count")
 plt.show()
 
 ```
+```
+import seaborn as sns
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+
+wine = datasets.load_wine()
+df = pd.DataFrame(data=wine.data,columns=wine.feature_names)
+df["target"] = wine.target
+df.rename(columns={"od280/od315_of_diluted_wines":"protein_concentration"},inplace=True)
+
+magnesium_data = df['magnesium']
+magnesium_data.hist()
+
+print(f"Skewness::{df['magnesium'].skew()}")
+print(f"Skewness::{df['magnesium'].kurt()}")
+
+print(f"原始偏態:{df['magnesium'].skew()}")
+
+df['magnesium_log'] = np.log1p(df['magnesium'])
+
+print(f"log變換後偏態:{df['magnesium_log'].skew()}")
+
+plt.figure(figsize=(12,6))
+
+plt.subplot(1, 2, 1)
+sns.histplot(df['magnesium'], bins=30, color='blue')
+plt.title('Original Magnesium')
+
+plt.subplot(1, 2, 2)
+sns.histplot(df['magnesium_log'], bins=30, color='green')
+plt.title('Log Transformed Magnesium')
+plt.show()
+```
