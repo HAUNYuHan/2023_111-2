@@ -59,20 +59,25 @@ print(missing_values)
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 wine = datasets.load_wine()
-df =pd.DataFrame(data=wine.data, columns=wine.feature_names)
+df = pd.DataFrame(data=wine.data,columns=wine.feature_names)
 df["target"] = wine.target
 df.rename(columns={"od280/od315_of_diluted_wines":"protein_concentration"},inplace=True)
 
-df['target'].values_counts().plot(kind="bar",color="#FF5809",alpha=1)
-plt.grid(axis="both",linestyle="-",alpha=0.5)
+
+
+df['target'].value_counts().plot(kind="bar",color="#FF5809",alpha=1)
+plt.grid(axis="both", linestyle="-", alpha=0.5)
 plt.title("Value counts of the target variable")
-plt.xlable("Wine type",fontstyle='italic')
+plt.xlabel("Wine type",fontstyle='italic')
 plt.xticks(rotation=0)
-plt.ylable("Count")
+plt.ylabel("Count")
+
 
 plt.show()
+
 ```
