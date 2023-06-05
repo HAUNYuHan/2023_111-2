@@ -150,3 +150,46 @@ print(classification_report(y_test, predictions))
 
 
 ```
+```
+import seaborn as sns
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report
+
+from matplotlib import rcParams
+
+wine = load_wine()
+df = pd.DataFrame(data=wine.data,columns=wine.feature_names)
+df["target"] = wine.target
+
+df.head()
+df.tail()
+df.shape
+df.describe()
+df.info()
+df.dtypes
+df.isna()
+df.duplicated().sum()
+
+df.rename(columns={"od280/od315_of_diluted_wines":"protein_connection"})
+
+df.target.value_counts()
+df.target.value_counts(normalize=True)
+
+
+Q1=df.quantile(0.25)
+Q3=df.quantile(0.75)
+IQR =Q3-Q1
+
+lower_bound=Q1-1.5*IQR
+upper_bound=Q1+1.5*IQR
+
+outlier_counts=((df<lower_bound)|(df>upper_bound)).sum()
+
+print(outlier_counts)
+```
