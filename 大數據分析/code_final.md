@@ -213,3 +213,27 @@ df["target"] = wine.target
 df=df.drop('magnesium',axis=1)
 sns.pairplot(df)
 ```
+```
+import seaborn as sns
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report
+
+from matplotlib import rcParams
+
+wine = load_wine()
+df = pd.DataFrame(data=wine.data,columns=wine.feature_names)
+df["target"] = wine.target
+
+
+
+corrmat=df.corr()
+hm=sns.heatmap(corrmat, cbar=True,annot=True,square=True,fmt='.2f',annot_kws={'size':6},
+               yticklabels=df.columns,xticklabels=df.columns,cmap="Spectral_r")
+plt.show()
+```
